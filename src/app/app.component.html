@@ -1,9 +1,7 @@
 <form #f="ngForm" (ngSubmit)="geocoding(f)" novalidate>
   <input type="text" name="address" placeholder="場所を入力してください...(例:品川駅)" ngModel>
 </form>
+<div class="address-panel">{{ address }}</div>
 <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
   <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
 </sebm-google-map>
-<div class="address-panel">
-  <div class="address"></div>
-</div>

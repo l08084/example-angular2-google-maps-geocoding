@@ -42,7 +42,6 @@ export class AppComponent implements OnInit {
 
     this.mapService.reverseGeocoding(this.lat, this.lng).then(
       rtn => {
-        console.log(rtn[0].formatted_address);
         self.address = rtn[0].formatted_address;
       }
     );
