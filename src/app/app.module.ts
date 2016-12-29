@@ -17,7 +17,7 @@ import { MapService } from '../services/map.service';
     FormsModule,
     HttpModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAE7FeZF_kggVukf3_XGz5QXpstP6q6DP4'
+      apiKey: 'YourAPIKey'
     })
   ],
   providers: [

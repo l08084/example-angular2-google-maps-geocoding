@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MapService } from '../services/map.service';
 
@@ -7,14 +7,19 @@ import { MapService } from '../services/map.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   lat: number = 35.6329007;
   lng: number = 139.8782003;
   zoom: number = 15;
+  address: string = '';
 
   constructor(
     public mapService: MapService,
   ) {}
+
+  public ngOnInit() {
+    this.getAddress();
+  }
 
   public geocoding(f: NgForm) {
     let self = this;
@@ -25,6 +30,20 @@ export class AppComponent {
 
         self.lat = location.lat();
         self.lng = location.lng();
+
+        // call reverse geocoding
+        self.getAddress();
+      }
+    );
+  }
+
+  public getAddress() {
+    let self = this;
+
+    this.mapService.reverseGeocoding(this.lat, this.lng).then(
+      rtn => {
+        console.log(rtn[0].formatted_address);
+        self.address = rtn[0].formatted_address;
       }
     );
   }

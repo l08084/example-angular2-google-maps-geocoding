@@ -28,4 +28,22 @@ export class MapService {
         });
     }
 
+    public reverseGeocoding(lat: number, lng: number): Promise<any> {
+        let latlng = { lat: lat, lng: lng };
+
+        return this.mapsAPILoader.load().then(() => {
+
+            this.geocoder = new google.maps.Geocoder();
+            return new Promise((resolve, reject) => {
+                this.geocoder.geocode({ 'location': latlng }, (result: any, status: any) => {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                        resolve(result);
+                    } else {
+                        reject(status);
+                    }
+                });
+            });
+        });
+    }
+
 }
