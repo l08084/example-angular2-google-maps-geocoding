@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
+import { MapService } from '../services/map.service';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -15,10 +17,12 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
     FormsModule,
     HttpModule,
     AgmCoreModule.forRoot({
-      apiKey: 'YourAPIKey'
+      apiKey: 'AIzaSyAE7FeZF_kggVukf3_XGz5QXpstP6q6DP4'
     })
   ],
-  providers: [],
+  providers: [
+    MapService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
