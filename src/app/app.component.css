@@ -21,3 +21,16 @@ input {
   z-index: 100;
   text-align: center;
 }
+
+.trafficButton {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  width: 150px;
+  height: 50px;
+
+  background-color: #ffffff;
+  z-index: 100;
+  text-align: center;
+  line-height: 50px;
+}

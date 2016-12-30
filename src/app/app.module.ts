@@ -7,22 +7,26 @@ import { AppComponent } from './app.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { MapService } from '../services/map.service';
+import { MapContentComponent } from '../components/map/map-content.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MapContentComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AgmCoreModule.forRoot({
-      apiKey: 'YourAPIKey'
+      apiKey: 'YourAPIKEY'
     })
   ],
   providers: [
     MapService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+    ]
 })
 export class AppModule { }

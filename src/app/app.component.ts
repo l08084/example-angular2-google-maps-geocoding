@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   lng: number = 139.8782003;
   zoom: number = 15;
   address: string = '';
+  trafficSwitch: number = 0;
 
   constructor(
     public mapService: MapService,
@@ -45,5 +46,9 @@ export class AppComponent implements OnInit {
         self.address = rtn[0].formatted_address;
       }
     );
+  }
+
+  public setTrafficLayer() {
+    this.trafficSwitch = 1 - this.trafficSwitch;
   }
 }

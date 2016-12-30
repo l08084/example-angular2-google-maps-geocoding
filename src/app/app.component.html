@@ -2,6 +2,8 @@
   <input type="text" name="address" placeholder="場所を入力してください...(例:品川駅)" ngModel>
 </form>
 <div class="address-panel">{{ address }}</div>
+<div class="trafficButton" (click)="setTrafficLayer()">Set Traffic Layer</div>
 <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
   <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+  <map-content #map [trafficSwitch]="trafficSwitch"></map-content>
 </sebm-google-map>
